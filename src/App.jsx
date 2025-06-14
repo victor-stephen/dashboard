@@ -1,15 +1,23 @@
 import { useState } from "react";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import TopBar from "./scenes/global/TopBar";
 import SideBar from "./scenes/global/SideBar";
+import { ColorModeContext, useMode } from "./theme";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [theme, colorMode] = useMode();
   return (
-    <div className="app">
-      <TopBar />
-      <SideBar />
-    </div>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="app">
+          <main className="content">
+            <TopBar />
+            <SideBar />
+          </main>
+        </div>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 }
 
