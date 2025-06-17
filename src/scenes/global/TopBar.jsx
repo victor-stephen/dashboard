@@ -33,11 +33,9 @@ export default function TopBar() {
           sx={{
             ml: 2,
             fontSize: theme.typography.fontSize,
-            // border: "none",
           }}
           aria-label="Search"
           placeholder="Search"
-          // flex={1}
           disableUnderline
         />
         <IconButton type="button" sx={{ p: 1 }} aria-label="search">
