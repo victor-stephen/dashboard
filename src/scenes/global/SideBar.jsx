@@ -35,6 +35,7 @@ function SideBar() {
         "& .ps-sidebar-root ": {
           backgroundColor: `${colors.primary[400]} !important`,
           height: "100%",
+          border: "none",
         },
         "& .ps-sidebar-container": {
           backgroundColor: "transparent !important",
@@ -59,6 +60,7 @@ function SideBar() {
             icon={isCollapsed ? <MenuOutlinedIcon /> : null}
           >
             <Box
+              width="100%"
               display="flex"
               alignItems="center"
               justifyContent="space-between"

@@ -31,30 +31,27 @@ export default function Team() {
     {
       field: "access",
       headerName: "Access Level",
-      flex:1,
+      flex: 1,
       renderCell: ({ row: { access } }) => {
         return (
           <Box
             display="flex"
-            m="0 auto"
+            m="10px auto"
             p="5px"
-            width="60%"
+            width="min(100%, 300px)"
             alignItems="center"
-            justifyContent="space-between"
+            justifyContent="center"
             backgroundColor={
               access === "admin"
                 ? colors.greenAccent[600]
                 : colors.greenAccent[700]
             }
             borderRadius="4px"
-            
           >
             {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
             {access === "manager" && <SecurityOutlinedIcon />}
             {access === "user" && <LockOpenOutlinedIcon />}
-            <Typography>
-              {access}
-            </Typography>
+            <Typography>{access}</Typography>
           </Box>
         );
       },
@@ -66,11 +63,32 @@ export default function Team() {
       <Box
         m="40px 0 0 0"
         height="75vh"
-        sx={
-          {
-            "& .MuiDataGrid-root": {border : "none"}
-          }
-        }
+        sx={{
+          "& .MuiDataGrid-root": {
+            border: "none",
+          },
+          "& .MuiDataGrid-row": {
+            borderBottom: "none"
+          },
+          "& .MuiDataGrid-cell": {
+            border:"none",
+            // borderBottom: "none",
+          },
+          "& .name-column--cell": {
+            color: colors.greenAccent[300],
+          },
+          "& .MuiDataGrid-columnHeader": {
+            backgroundColor: `${colors.blueAccent[700]} !important`,
+            border:"none"
+          },
+          "& .MuiDataGrid-virtualScroller": {
+            backgroundColor: colors.primary[400],
+          },
+          "& .MuiDataGrid-footerContainer": {
+            borderTop: "none",
+            backgroundColor: colors.blueAccent[700],
+          },
+        }}
       >
         <DataGrid
           columns={columns}
