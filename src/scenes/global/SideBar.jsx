@@ -102,7 +102,6 @@ function SideBar() {
             {sidebarMenu.map((category, index) => (
               <Box
                 key={index}
-                borderBottom="1px solid white"
                 marginRight={isCollapsed ? "0" : "25px"}
                 marginBottom="10px"
                 sx={{ "&:last-child": { borderBottom: "none" } }}
